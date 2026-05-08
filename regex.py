@@ -125,10 +125,20 @@ class RegexFSM:
         return any(isinstance(n, TerminationState) for s in states for n in s.next_states)
     
 if __name__ == "__main__":
-    regex_pattern = "a*4.+hi"
+    parser = argparse.ArgumentParser(description='Regex FSM Checker')
+    parser.add_argument('--regex', type=str, required=True, help='Regex pattern (e.g., "a*b+")')
+    parser.add_argument('--strings', type=str, nargs='+', required=True, help='Strings to check against the regex')
 
-    regex_compiled = RegexFSM(regex_pattern)
+    args = parser.parse_args()
 
-    print(regex_compiled.check_string("aaaaaa4uhi"))  # True
-    print(regex_compiled.check_string("4uhi"))  # True
-    print(regex_compiled.check_string("meow"))  # False
+    try:
+        regex_compiled = RegexFSM(args.regex)
+        print(f"Regex Pattern: {args.regex}")
+        print("-" * 30)
+
+        for s in args.strings:
+            result = regex_compiled.check_string(s)
+            print(f"'{s}': {result}")
+
+    except Exception as e:
+        print(f"Error: {e}")
