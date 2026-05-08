@@ -22,7 +22,7 @@
 
 вводити наступне за вашим смаком і вибором
 
-python regex_new.py --regex "a*4.+hi" --strings "aaaaaa4uhi" "4ohi" "a4++hi" "42+hi" "meow"
+python regex.py --regex "a*4.+hi" --strings "aaaaaa4uhi" "4ohi" "a4++hi" "42+hi" "meow"
 
 виведе десь таке:
 
@@ -34,7 +34,7 @@ Regex Pattern: a*4.+hi
 '42+hi': True
 'meow': False
 
-python regex_new.py --regex "b+c" --strings "bc" "bbbbc" "c" "abc"
+python regex.py --regex "b+c" --strings "bc" "bbbbc" "c" "abc"
 
 Regex Pattern: b+c
 ------------------------------
@@ -43,7 +43,7 @@ Regex Pattern: b+c
 'c': False
 'abc': False
 
-python regex_new.py --regex "..*" --strings "a" "123" ""
+python regex.py --regex "..*" --strings "a" "123" ""
 
 Regex Pattern: ..*
 ------------------------------
